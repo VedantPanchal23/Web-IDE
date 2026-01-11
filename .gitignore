@@ -1,0 +1,336 @@
+# AI-IDE Project Gitignore
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Production builds
+dist/
+build/
+out/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Backend logs
+backend/logs/
+
+# Frontend build output
+frontend/dist/
+frontend/build/
+
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+.conda/
+conda/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+
+# Ignore local development files
+DEVELOPMENT.md
+*_REPORT.md
+*_FIX.md
+*_COMPLETE.md
+TERMINAL_*.md
+CODE_EXECUTION_*.md
+ENHANCED_*.md
+TERMINAL_WORKSPACE_*.md
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Docker volumes (local development)
+volumes/
+data/
+
+# Temporary folders
+tmp/
+temp/
+.tmp/
+.temp/
+
+# MongoDB database files (if running locally)
+data/
+*.db
+mongodb/
+
+# Redis dump file
+dump.rdb
+
+# SSL certificates (if any)
+*.pem
+*.key
+*.crt
+*.cer
+
+# Backup files
+*.backup
+*.bak
+*.orig
+*.rej
+
+# Cache files
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+
+# Test artifacts
+test-results/
+playwright-report/
+test_output/
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Local development files
+.local/
+local.json
+local.yml
+local.js
+local.ts
+
+# Temporary validation and test files
+validate_*.py
+test_*.py
+final_*.py
+quick_*.py
+simple_*.py
+*_validation.py
+*_test.py
+
+# Development artifacts
+*.md.tmp
+*.log.tmp
+
+# Lock files (keep package-lock.json but ignore others if needed)
+# yarn.lock - uncomment if using yarn
+# pnpm-lock.yaml - uncomment if using pnpm
+
+# ESLint cache
+.eslintcache
+
+# Prettier cache
+.prettiercache
+
+# Stylelint cache
+.stylelintcache
+
+# Webpack bundle analyzer
+bundle-analyzer-report.html
+
+# Storybook build outputs
+storybook-static/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Local Netlify folder
+.netlify/
+
+# Vercel
+.vercel/
+
+# Surge
+.surge/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# AWS
+.aws-sam/
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary files created by editors
+*#
+*#*
+*~
+*.swp
+*.swo
+*~
+.project
+.metadata
+.classpath
+.c9/
+*.launch
+.settings/
+.vscode/settings.json
+.history/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*

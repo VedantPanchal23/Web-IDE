@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello from HTML!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .emoji {
+            font-size: 4em;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .feature h3 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🚀</div>
+        <h1>Hello from HTML!</h1>
+        <p>This HTML file is running in your browser from the AI-IDE!</p>
+        
+        <div class="features">
+            <div class="feature">
+                <div style="font-size: 2em;">💻</div>
+                <h3>Multi-Language</h3>
+                <p>14+ languages supported</p>
+            </div>
+            <div class="feature">
+                <div style="font-size: 2em;">⚡</div>
+                <h3>Fast Execution</h3>
+                <p>Run code instantly</p>
+            </div>
+            <div class="feature">
+                <div style="font-size: 2em;">🎨</div>
+                <h3>Beautiful UI</h3>
+                <p>Modern design</p>
+            </div>
+        </div>
+        
+        <script>
+            console.log('✅ HTML file loaded successfully!');
+            console.log('Current time:', new Date().toLocaleTimeString());
+            
+            // Add interactive effect
+            document.querySelectorAll('.feature').forEach(feature => {
+                feature.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                feature.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

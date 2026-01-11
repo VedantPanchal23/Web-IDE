@@ -1,0 +1,323 @@
+.multi-terminal-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Terminal Tabs */
+.terminal-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #252526;
+  border-bottom: 1px solid #3c3c3c;
+  padding: 0 8px;
+  min-height: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.terminal-tabs-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+.terminal-tabs-list::-webkit-scrollbar {
+  height: 3px;
+}
+
+.terminal-tabs-list::-webkit-scrollbar-track {
+  background: #252526;
+}
+
+.terminal-tabs-list::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 2px;
+}
+
+.terminal-tabs-list::-webkit-scrollbar-thumb:hover {
+  background: #4e4e4e;
+}
+
+.terminal-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #2d2d30;
+  border: 1px solid #3c3c3c;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.terminal-tab:hover {
+  background-color: #3c3c3c;
+}
+
+.terminal-tab.active {
+  background-color: #1e1e1e;
+  border-color: #007acc;
+  border-bottom: 2px solid #007acc;
+}
+
+.terminal-tab-status {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.terminal-tab-icon {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.terminal-tab-name {
+  font-size: 12px;
+  font-weight: 500;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminal-tab-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #858585;
+  cursor: pointer;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  padding: 0;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.terminal-tab-close:hover {
+  background-color: #ff4444;
+  color: #ffffff;
+}
+
+.terminal-actions {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.terminal-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c3c3c;
+  border: 1px solid #3c3c3c;
+  color: #cccccc;
+  cursor: pointer;
+  font-size: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  padding: 0;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.terminal-action-btn:hover {
+  background-color: #454545;
+}
+
+.terminal-action-btn:active {
+  background-color: #007acc;
+}
+
+/* Terminal Panels */
+.terminal-panels {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background-color: #1e1e1e;
+}
+
+.terminal-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #cccccc;
+  text-align: center;
+  padding: 40px;
+}
+
+.terminal-empty-state p {
+  margin: 0;
+}
+
+.terminal-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #1e1e1e;
+}
+
+.terminal-panel.hidden {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.terminal-panel.active {
+  position: relative;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.terminal-shortcuts span {
+  opacity: 0.8;
+}
+
+/* Light theme */
+body.light-theme .multi-terminal-container {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.light-theme .terminal-tabs {
+  background-color: #f3f3f3;
+  border-color: #e0e0e0;
+}
+
+body.light-theme .terminal-tab {
+  background-color: #ffffff;
+  border-color: #d0d0d0;
+  color: #333333;
+}
+
+body.light-theme .terminal-tab:hover {
+  background-color: #e8e8e8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .terminal-tab {
+    padding: 5px 10px;
+  }
+  
+  .terminal-tab-name {
+    max-width: 100px;
+  }
+  
+  .terminal-action-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .terminal-tabs {
+    padding: 0 4px;
+    min-height: 32px;
+    height: 32px;
+  }
+  
+  .terminal-tab {
+    padding: 4px 8px;
+    gap: 4px;
+  }
+  
+  .terminal-tab-name {
+    max-width: 80px;
+    font-size: 11px;
+  }
+  
+  .terminal-tab-icon {
+    font-size: 12px;
+  }
+  
+  .terminal-action-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-tabs {
+    padding: 0 4px;
+    min-height: 30px;
+    height: 30px;
+  }
+  
+  .terminal-tab {
+    padding: 3px 6px;
+    gap: 3px;
+    min-width: 50px;
+  }
+  
+  .terminal-tab-name {
+    max-width: 60px;
+    font-size: 10px;
+  }
+  
+  .terminal-tab-close {
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+  }
+  
+  .terminal-action-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+}
+
+body.light-theme .terminal-tab.active {
+  background-color: #ffffff;
+  border-color: #007acc;
+}
+
+body.light-theme .terminal-action-btn {
+  background-color: #ffffff;
+  border-color: #d0d0d0;
+  color: #333333;
+}
+
+body.light-theme .terminal-action-btn:hover {
+  background-color: #e8e8e8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terminal-tab-name {
+    max-width: 80px;
+  }
+
+  .terminal-shortcuts {
+    display: none;
+  }
+}

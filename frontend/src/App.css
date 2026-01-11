@@ -1,0 +1,47 @@
+/* Global reset and IDE-specific styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure Monaco Editor works properly */
+.monaco-editor .overflow-guard {
+  position: relative;
+}
+
+/* Fix focus outline for accessibility */
+button:focus-visible {
+  outline: 2px solid #1f6feb;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on UI elements */
+.ide-header,
+.ide-sidebar-header,
+.ide-terminal-header,
+.monaco-status-bar {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: ai-ide-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: ai-ide
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./infra/mongodb/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - ai-ide-network
+
+  # Redis for Session Storage and Caching
+  redis:
+    image: redis:7-alpine
+    container_name: ai-ide-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass redis123
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ai-ide-network
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai-ide-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/ai-ide?authSource=admin
+      REDIS_URL: redis://:redis123@redis:6379
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      CORS_ORIGINS: http://localhost:3000
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_REDIRECT_URI: http://localhost:3001/api/v1/auth/google/callback
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock # For Docker container management
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - ai-ide-network
+
+  # Frontend Development Server
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: ai-ide-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      VITE_API_URL: http://localhost:3001/api/v1
+      VITE_WS_URL: ws://localhost:3001
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - ai-ide-network
+
+  # Nginx Reverse Proxy (Optional for production-like setup)
+  nginx:
+    image: nginx:alpine
+    container_name: ai-ide-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./infra/nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - ai-ide-network
+    profiles:
+      - production
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  ai-ide-network:
+    driver: bridge

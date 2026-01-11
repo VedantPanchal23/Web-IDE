@@ -1,0 +1,402 @@
+.editor-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  background: #2d2d30;
+  border-bottom: 1px solid #252526;
+  color: #cccccc;
+  font-size: 13px;
+  height: 35px;
+  min-height: 35px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.toolbar-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.toolbar-right {
+  flex-shrink: 0;
+  gap: 1px;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.file-icon {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.file-name {
+  font-weight: 400;
+  color: #cccccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+
+.file-path {
+  color: #858585;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 4px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  color: #cccccc;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  height: 26px;
+  min-width: 26px;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+  background: #37373d;
+  color: #ffffff;
+}
+
+.toolbar-btn:active:not(:disabled) {
+  background: #3e3e42;
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-btn .btn-text {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.run-button {
+  background: #16825d;
+  color: #ffffff;
+  padding: 5px 12px;
+  font-weight: 500;
+}
+
+.run-button:hover:not(:disabled) {
+  background: #1a9f6f;
+}
+
+.run-button:active:not(:disabled) {
+  background: #14724f;
+}
+
+.format-button,
+.save-button {
+  padding: 5px 8px;
+}
+
+/* Old styles below - will be overridden */
+.run-button-old {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.run-button:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.run-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.run-button.executing {
+  background: #FF9800;
+}
+
+.run-button.executing:hover {
+  background: #f57c00;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  font-size: 14px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.execution-panel-toggle {
+  background: transparent;
+  border: 1px solid #555;
+  color: #cccccc;
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+}
+
+.execution-panel-toggle:hover {
+  background: #3e3e42;
+  border-color: #777;
+}
+
+.format-button,
+.save-button {
+  background: transparent;
+  border: 1px solid #555;
+  color: #cccccc;
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.format-button:hover,
+.save-button:hover {
+  background: #3e3e42;
+  border-color: #777;
+}
+
+.execution-panel {
+  background: #1e1e1e;
+  border-bottom: 1px solid #3e3e42;
+  max-height: 400px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.execution-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #2d2d30;
+  border-bottom: 1px solid #3e3e42;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.close-panel {
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-panel:hover {
+  background: #3e3e42;
+  color: #ffffff;
+}
+
+.execution-panel-content {
+  flex: 1;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.toolbar-code-execution {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.toolbar-code-execution .execution-controls {
+  background: #252526;
+  border-bottom: 1px solid #3e3e42;
+  padding: 8px 16px;
+}
+
+.toolbar-code-execution .execution-output {
+  padding: 12px 16px;
+}
+
+/* Animation for panel toggle */
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.chevron.up {
+  transform: rotate(180deg);
+}
+
+.chevron.down {
+  transform: rotate(0deg);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .editor-toolbar {
+    padding: 6px 12px;
+  }
+  
+  .toolbar-left,
+  .toolbar-right {
+    gap: 6px;
+  }
+  
+  .execution-panel {
+    max-height: 350px;
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-toolbar {
+    padding: 6px 12px;
+    font-size: 12px;
+    height: 36px;
+    min-height: 36px;
+  }
+  
+  .toolbar-left,
+  .toolbar-right {
+    gap: 4px;
+  }
+  
+  .run-button {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+  
+  .file-language {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+  
+  .file-name {
+    font-size: 12px;
+  }
+  
+  .format-button,
+  .save-button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  
+  .execution-panel-content {
+    min-height: 250px;
+  }
+  
+  .execution-panel {
+    max-height: 300px;
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editor-toolbar {
+    padding: 4px 8px;
+    height: 32px;
+    min-height: 32px;
+  }
+  
+  .file-language {
+    display: none;
+  }
+  
+  .toolbar-separator {
+    display: none;
+  }
+  
+  .execution-panel-toggle {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+  
+  .execution-panel {
+    max-height: 250px;
+    min-height: 120px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .editor-toolbar {
+    border-bottom-width: 2px;
+  }
+  
+  .run-button {
+    background: #00ff00;
+    color: #000;
+  }
+  
+  .execution-panel-toggle,
+  .format-button,
+  .save-button {
+    border-width: 2px;
+  }
+  
+  .toolbar-separator {
+    background: #ffffff;
+    width: 2px;
+  }
+}

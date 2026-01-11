@@ -1,0 +1,73 @@
+/* Enhanced File Tree Theme Styles */
+
+/* Override inline styles with CSS variables */
+.file-tree-container {
+  color: var(--text-primary) !important;
+}
+
+.file-tree-item-wrapper {
+  color: var(--file-tree-text, #f0f6fc) !important;
+}
+
+.file-tree-item-wrapper:hover {
+  background-color: var(--file-tree-hover, #2a2d2e) !important;
+}
+
+.file-tree-item-wrapper.selected {
+  background-color: var(--file-tree-selected, #264f78) !important;
+  border-color: var(--file-tree-selected-border, #005fb8) !important;
+}
+
+/* Context menu */
+.file-tree-context-menu {
+  background: var(--bg-secondary, #252526) !important;
+  border-color: var(--border-color, #454545) !important;
+}
+
+.file-tree-context-menu button {
+  color: var(--text-primary, #cccccc) !important;
+}
+
+.file-tree-context-menu button:hover {
+  background-color: var(--bg-hover, #2a2d2e) !important;
+}
+
+/* Toolbar buttons */
+.file-tree-toolbar button {
+  color: var(--text-primary, #f0f6fc) !important;
+}
+
+.file-tree-toolbar button:hover {
+  background-color: var(--bg-hover, #30363d) !important;
+}
+
+.file-tree-toolbar button svg {
+  color: var(--text-primary, #f0f6fc) !important;
+}
+
+.file-tree-toolbar button:disabled svg {
+  color: var(--text-muted, #656d76) !important;
+  opacity: 0.5;
+}
+
+/* Project header */
+.file-tree-project-name {
+  color: var(--text-primary, #f0f6fc) !important;
+}
+
+/* Input field for renaming */
+.file-tree-rename-input {
+  color: var(--text-primary, #f0f6fc) !important;
+  border-color: var(--accent-color, #58a6ff) !important;
+  background: var(--bg-secondary, transparent) !important;
+}
+
+/* Muted text */
+.file-tree-muted-text {
+  color: var(--text-muted, #656d76) !important;
+}
+
+/* Shortcut text */
+.file-tree-shortcut {
+  color: var(--text-secondary, #858585) !important;
+}

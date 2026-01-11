@@ -1,0 +1,269 @@
+.ide-header-new {
+  height: 35px;
+  background: #323233;
+  border-bottom: 1px solid #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  color: #cccccc;
+  font-size: 13px;
+  position: relative;
+  z-index: 1000;
+}
+
+.ide-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.ide-logo {
+  font-weight: 600;
+  font-size: 13px;
+  color: #cccccc;
+  padding: 0 12px;
+  cursor: default;
+}
+
+.ide-menu-bar {
+  display: flex;
+  gap: 2px;
+  position: relative;
+}
+
+.menu-item-container {
+  position: relative;
+}
+
+.menu-button {
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.1s ease;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-button:hover {
+  background: #2a2d2e;
+}
+
+.menu-button.active {
+  background: #2a2d2e;
+  color: #ffffff;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #252526;
+  border: 1px solid #454545;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  min-width: 240px;
+  border-radius: 4px;
+  padding: 4px 0;
+  z-index: 10000;
+  margin-top: 2px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #cccccc;
+  font-size: 13px;
+  transition: background-color 0.1s ease;
+}
+
+.menu-item:hover {
+  background: #2a2d2e;
+  color: #ffffff;
+}
+
+.menu-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-icon {
+  font-size: 16px;
+  color: #cccccc;
+}
+
+.menu-shortcut {
+  font-size: 11px;
+  color: #858585;
+  margin-left: auto;
+}
+
+.menu-divider {
+  height: 1px;
+  background: #454545;
+  margin: 4px 0;
+}
+
+.font-size-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  cursor: default;
+}
+
+.font-size-controls:hover {
+  background: transparent;
+}
+
+.font-size-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.font-btn {
+  background: #3c3c3c;
+  border: 1px solid #454545;
+  color: #cccccc;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+}
+
+.font-btn:hover {
+  background: #505050;
+  border-color: #5a5a5a;
+}
+
+.font-btn-reset {
+  background: #3c3c3c;
+  border: 1px solid #454545;
+  color: #cccccc;
+  padding: 2px 8px;
+  height: 24px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.1s ease;
+}
+
+.font-btn-reset:hover {
+  background: #505050;
+  border-color: #5a5a5a;
+}
+
+.font-size-value {
+  font-size: 12px;
+  color: #cccccc;
+  min-width: 20px;
+  text-align: center;
+}
+
+.projects-button {
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  margin-left: 4px;
+}
+
+.projects-button:hover {
+  background: #2a2d2e;
+}
+
+.ide-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Light Theme */
+.ide-header-new.theme-light {
+  background: #f3f3f3;
+  border-bottom-color: #e0e0e0;
+  color: #333333;
+}
+
+.theme-light .ide-logo,
+.theme-light .menu-button,
+.theme-light .projects-button {
+  color: #333333;
+}
+
+.theme-light .menu-button:hover,
+.theme-light .projects-button:hover {
+  background: #e5e5e5;
+}
+
+.theme-light .menu-button.active {
+  background: #e5e5e5;
+  color: #000000;
+}
+
+.theme-light .menu-dropdown {
+  background: #ffffff;
+  border-color: #d0d0d0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.theme-light .menu-item {
+  color: #333333;
+}
+
+.theme-light .menu-item:hover {
+  background: #f0f0f0;
+  color: #000000;
+}
+
+.theme-light .menu-icon {
+  color: #333333;
+}
+
+.theme-light .menu-divider {
+  background: #d0d0d0;
+}
+
+.theme-light .menu-shortcut {
+  color: #707070;
+}
+
+.theme-light .font-btn,
+.theme-light .font-btn-reset {
+  background: #f3f3f3;
+  border-color: #d0d0d0;
+  color: #333333;
+}
+
+.theme-light .font-btn:hover,
+.theme-light .font-btn-reset:hover {
+  background: #e5e5e5;
+  border-color: #c0c0c0;
+}
+
+.theme-light .font-size-value {
+  color: #333333;
+}

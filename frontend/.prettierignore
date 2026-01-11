@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+coverage/
+*.log
+.env
+.env.local
+.env.production
+.DS_Store
+Thumbs.db
+public/vite.svg

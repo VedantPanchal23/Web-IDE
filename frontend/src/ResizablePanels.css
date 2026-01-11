@@ -1,0 +1,523 @@
+/* Resizable Panels Styles */
+
+/* Resize Handles */
+.resize-handle {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.resize-handle:hover,
+.resize-handle.resizing {
+  background-color: #007acc;
+}
+
+/* Horizontal Resize Handle (for sidebar - right edge) */
+.resize-handle-right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: ew-resize;
+}
+
+.resize-handle-left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: ew-resize;
+}
+
+/* Vertical Resize Handle (for terminal - top edge) */
+.resize-handle-top {
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  cursor: ns-resize;
+}
+
+.resize-handle-bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  cursor: ns-resize;
+}
+
+/* Resize Handle Indicator */
+.resize-handle-indicator {
+  position: absolute;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.resize-handle-right .resize-handle-indicator,
+.resize-handle-left .resize-handle-indicator {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 30px;
+  border-radius: 1px;
+}
+
+.resize-handle-top .resize-handle-indicator,
+.resize-handle-bottom .resize-handle-indicator {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.resize-handle:hover .resize-handle-indicator,
+.resize-handle.resizing .resize-handle-indicator {
+  background: #ffffff;
+}
+
+/* Resizable Panel Base */
+.resizable-panel {
+  position: relative;
+  transition: none;
+}
+
+.resizable-panel.resizing {
+  user-select: none;
+  pointer-events: all;
+}
+
+/* Prevent text selection during resize */
+body.resizing {
+  user-select: none;
+  cursor: ew-resize;
+}
+
+body.resizing-vertical {
+  user-select: none;
+  cursor: ns-resize;
+}
+
+/* Draggable Panel */
+.draggable-panel {
+  position: relative;
+  background: #252526;
+  border: 1px solid #3c3c3c;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.draggable-panel.dragging {
+  opacity: 0.7;
+  transform: scale(0.95);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.draggable-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #2d2d30;
+  border-bottom: 1px solid #3c3c3c;
+  cursor: move;
+  user-select: none;
+}
+
+.draggable-panel-header:hover {
+  background: #37373d;
+}
+
+.panel-drag-indicator {
+  color: #6c757d;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.panel-title {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #cccccc;
+}
+
+.draggable-panel-content {
+  padding: 12px;
+  overflow: auto;
+}
+
+/* Drop Zone */
+.drop-zone {
+  position: relative;
+  min-height: 50px;
+  transition: all 0.2s ease;
+}
+
+.drop-zone-active {
+  background: rgba(0, 122, 204, 0.1);
+  border: 2px dashed #007acc;
+}
+
+.drop-zone-active::before {
+  content: 'Drop here';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #007acc;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Panel Position Classes */
+.panel-position-left {
+  order: 1;
+}
+
+.panel-position-right {
+  order: 3;
+}
+
+.panel-position-bottom {
+  order: 2;
+  width: 100%;
+}
+
+/* Terminal Position Variants */
+.ide-terminal.position-bottom {
+  width: 100%;
+  border-top: 1px solid #2d2d30;
+  border-left: none;
+  border-right: none;
+}
+
+.ide-terminal.position-left {
+  width: 300px;
+  min-width: 200px;
+  max-width: 600px;
+  height: 100%;
+  border-right: 1px solid #2d2d30;
+  border-top: none;
+}
+
+.ide-terminal.position-right {
+  width: 300px;
+  min-width: 200px;
+  max-width: 600px;
+  height: 100%;
+  border-left: 1px solid #2d2d30;
+  border-top: none;
+}
+
+/* Sidebar Position Variants */
+.ide-sidebar.position-left {
+  order: 1;
+  border-right: 1px solid #2d2d30;
+  border-left: none;
+}
+
+.ide-sidebar.position-right {
+  order: 3;
+  border-left: 1px solid #2d2d30;
+  border-right: none;
+}
+
+/* Panel Controls */
+.panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.panel-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.panel-control-btn:hover {
+  background: #3e3e42;
+  color: #ffffff;
+}
+
+.panel-control-btn:active {
+  background: #007acc;
+}
+
+.panel-control-btn.active {
+  background: #007acc;
+  color: #ffffff;
+}
+
+/* Terminal Controls */
+.terminal-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.terminal-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.terminal-control-btn:hover {
+  background: #3e3e42;
+  color: #ffffff;
+}
+
+.terminal-control-btn.active {
+  background: #007acc;
+  color: #ffffff;
+}
+
+/* Position Indicator */
+.position-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: #3e3e42;
+  border-radius: 3px;
+  font-size: 10px;
+  color: #cccccc;
+  text-transform: uppercase;
+}
+
+/* Sidebar Controls */
+.sidebar-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.sidebar-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-control-btn:hover {
+  background: #37373d;
+  color: #ffffff;
+}
+
+/* Smooth Transitions */
+.panel-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Layout Container with Flexible Positioning */
+.ide-layout-flexible {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.ide-layout-flexible.vertical {
+  flex-direction: column;
+}
+
+.ide-layout-flexible.horizontal {
+  flex-direction: row;
+}
+
+/* Panel Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.panel-animate-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.panel-animate-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.panel-animate-in-bottom {
+  animation: slideInBottom 0.3s ease-out;
+}
+
+/* Context Menu for Panel Actions */
+.panel-context-menu {
+  position: absolute;
+  background: #252526;
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 4px;
+  z-index: 1000;
+  min-width: 180px;
+}
+
+.panel-context-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  color: #cccccc;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.panel-context-menu-item:hover {
+  background: #37373d;
+  color: #ffffff;
+}
+
+.panel-context-menu-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.panel-context-menu-item.disabled:hover {
+  background: transparent;
+}
+
+.panel-context-menu-separator {
+  height: 1px;
+  background: #3c3c3c;
+  margin: 4px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .resize-handle-right,
+  .resize-handle-left {
+    width: 8px;
+  }
+  
+  .resize-handle-top,
+  .resize-handle-bottom {
+    height: 8px;
+  }
+  
+  .panel-control-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resize-handle-right,
+  .resize-handle-left {
+    width: 12px;
+  }
+  
+  .resize-handle-top,
+  .resize-handle-bottom {
+    height: 12px;
+  }
+  
+  .draggable-panel-header {
+    padding: 6px 8px;
+  }
+  
+  .panel-title {
+    font-size: 12px;
+  }
+}
+
+/* Light Theme */
+body.light-theme .draggable-panel {
+  background: #ffffff;
+  border-color: #e0e0e0;
+}
+
+body.light-theme .draggable-panel-header {
+  background: #f3f3f3;
+  border-bottom-color: #e0e0e0;
+}
+
+body.light-theme .panel-title {
+  color: #333333;
+}
+
+body.light-theme .drop-zone-active {
+  background: rgba(0, 122, 204, 0.05);
+}
+
+body.light-theme .panel-context-menu {
+  background: #ffffff;
+  border-color: #e0e0e0;
+}
+
+body.light-theme .panel-context-menu-item {
+  color: #333333;
+}
+
+body.light-theme .panel-context-menu-item:hover {
+  background: #f3f3f3;
+}
+
+body.light-theme .panel-context-menu-separator {
+  background: #e0e0e0;
+}

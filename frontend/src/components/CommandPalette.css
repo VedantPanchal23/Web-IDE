@@ -1,0 +1,220 @@
+.command-palette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15vh;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+.command-palette {
+  width: 600px;
+  max-width: 90vw;
+  background-color: #252526;
+  border: 1px solid #454545;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.command-palette-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #3c3c3c;
+  background-color: #2d2d30;
+}
+
+.command-palette-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #cccccc;
+  font-size: 14px;
+  padding: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.command-palette-input::placeholder {
+  color: #6c6c6c;
+}
+
+.command-palette-shortcut {
+  color: #858585;
+  font-size: 11px;
+  padding: 2px 6px;
+  background-color: #3c3c3c;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.command-palette-results {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.command-palette-results::-webkit-scrollbar {
+  width: 10px;
+}
+
+.command-palette-results::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.command-palette-results::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
+
+.command-palette-results::-webkit-scrollbar-thumb:hover {
+  background: #4e4e4e;
+}
+
+.command-palette-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.command-palette-item:hover,
+.command-palette-item.selected {
+  background-color: #2a2d2e;
+}
+
+.command-palette-item.selected {
+  border-left: 2px solid #007acc;
+}
+
+.command-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.command-item-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.command-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.command-item-label {
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.command-item-description {
+  color: #858585;
+  font-size: 11px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.command-item-shortcut {
+  color: #858585;
+  font-size: 11px;
+  padding: 2px 6px;
+  background-color: #3c3c3c;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.command-palette-empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: #858585;
+  font-size: 13px;
+}
+
+.command-palette-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  border-top: 1px solid #3c3c3c;
+  background-color: #2d2d30;
+  font-size: 11px;
+  color: #858585;
+}
+
+.command-palette-footer span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Light theme support */
+body.light-theme .command-palette {
+  background-color: #ffffff;
+  border-color: #e0e0e0;
+}
+
+body.light-theme .command-palette-header,
+body.light-theme .command-palette-footer {
+  background-color: #f3f3f3;
+  border-color: #e0e0e0;
+}
+
+body.light-theme .command-palette-input {
+  color: #333333;
+}
+
+body.light-theme .command-palette-input::placeholder {
+  color: #999999;
+}
+
+body.light-theme .command-palette-item:hover,
+body.light-theme .command-palette-item.selected {
+  background-color: #e8e8e8;
+}
+
+body.light-theme .command-item-label {
+  color: #333333;
+}
+
+body.light-theme .command-item-description,
+body.light-theme .command-palette-footer {
+  color: #666666;
+}
+
+body.light-theme .command-palette-shortcut,
+body.light-theme .command-item-shortcut {
+  background-color: #e0e0e0;
+  color: #666666;
+}

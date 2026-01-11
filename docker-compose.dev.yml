@@ -1,0 +1,40 @@
+# Development version for local development
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: ai-ide-mongodb-dev
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: ai-ide
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - ai-ide-network
+
+  # Redis for Session Storage
+  redis:
+    image: redis:7-alpine
+    container_name: ai-ide-redis-dev
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass redis123
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ai-ide-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  ai-ide-network:
+    driver: bridge

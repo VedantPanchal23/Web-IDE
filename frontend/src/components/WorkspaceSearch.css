@@ -1,0 +1,334 @@
+.workspace-search-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.workspace-search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #3c3c3c;
+  background-color: #252526;
+}
+
+.workspace-search-header h3 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #858585;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  color: #858585;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background-color: #3c3c3c;
+  color: #cccccc;
+}
+
+.workspace-search-input-section {
+  padding: 12px;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.workspace-search-input {
+  width: 100%;
+  padding: 8px 32px 8px 8px;
+  background-color: #3c3c3c;
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  color: #cccccc;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.workspace-search-input:focus {
+  border-color: #007acc;
+}
+
+.workspace-search-input::placeholder {
+  color: #6c6c6c;
+}
+
+.search-spinner {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.search-options {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.search-option-btn {
+  padding: 4px 8px;
+  background-color: #3c3c3c;
+  border: 1px solid #3c3c3c;
+  border-radius: 3px;
+  color: #858585;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  transition: all 0.2s;
+}
+
+.search-option-btn:hover {
+  background-color: #454545;
+  color: #cccccc;
+}
+
+.search-option-btn.active {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: #ffffff;
+}
+
+.search-filters {
+  margin-top: 8px;
+}
+
+.search-filters summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: #858585;
+  padding: 4px 0;
+  user-select: none;
+}
+
+.search-filters summary:hover {
+  color: #cccccc;
+}
+
+.filter-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.filter-input {
+  padding: 6px 8px;
+  background-color: #3c3c3c;
+  border: 1px solid #3c3c3c;
+  border-radius: 3px;
+  color: #cccccc;
+  font-size: 12px;
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: #007acc;
+}
+
+.filter-input::placeholder {
+  color: #6c6c6c;
+  font-size: 11px;
+}
+
+.workspace-search-results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.workspace-search-results::-webkit-scrollbar {
+  width: 10px;
+}
+
+.workspace-search-results::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.workspace-search-results::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
+
+.workspace-search-results::-webkit-scrollbar-thumb:hover {
+  background: #4e4e4e;
+}
+
+.search-results-summary {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #858585;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.search-no-results {
+  padding: 32px 16px;
+  text-align: center;
+  color: #858585;
+  font-size: 13px;
+}
+
+.search-result-file {
+  margin-bottom: 8px;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.search-result-file-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.search-result-file-header:hover {
+  background-color: #2a2d2e;
+}
+
+.expand-icon {
+  font-size: 10px;
+  color: #858585;
+  width: 12px;
+  text-align: center;
+}
+
+.file-icon {
+  font-size: 14px;
+}
+
+.file-name {
+  flex: 1;
+  font-size: 13px;
+  color: #cccccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.match-count {
+  font-size: 11px;
+  color: #858585;
+  background-color: #3c3c3c;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.search-result-matches {
+  background-color: #252526;
+}
+
+.search-result-match {
+  display: flex;
+  gap: 8px;
+  padding: 4px 12px 4px 32px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.search-result-match:hover {
+  background-color: #2a2d2e;
+}
+
+.match-line-number {
+  color: #858585;
+  min-width: 40px;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+}
+
+.match-line-content {
+  flex: 1;
+  color: #cccccc;
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-highlight {
+  background-color: #515c6a;
+  color: #ffffff;
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Light theme */
+body.light-theme .workspace-search-panel {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.light-theme .workspace-search-header {
+  background-color: #f3f3f3;
+  border-color: #e0e0e0;
+}
+
+body.light-theme .workspace-search-input,
+body.light-theme .search-option-btn,
+body.light-theme .filter-input {
+  background-color: #ffffff;
+  border-color: #d0d0d0;
+  color: #333333;
+}
+
+body.light-theme .workspace-search-input:focus,
+body.light-theme .filter-input:focus {
+  border-color: #007acc;
+}
+
+body.light-theme .search-option-btn.active {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: #ffffff;
+}
+
+body.light-theme .search-result-file-header:hover,
+body.light-theme .search-result-match:hover {
+  background-color: #f0f0f0;
+}
+
+body.light-theme .search-result-matches {
+  background-color: #fafafa;
+}
+
+body.light-theme .search-highlight {
+  background-color: #ffeb3b;
+  color: #333333;
+}
+
+body.light-theme .match-count {
+  background-color: #e0e0e0;
+  color: #666666;
+}
